@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public Transform player;
-    [SerializeField] float lookSpeed;
+    public float lookSpeed;
     [SerializeField] float VRotation;
     //public Camera Main;
     // Start is called before the first frame update
