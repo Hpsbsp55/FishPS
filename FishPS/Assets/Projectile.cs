@@ -13,25 +13,34 @@ public class Projectile : MonoBehaviour
         HRB = GetComponent<Rigidbody>();
         OriginalPos = transform.position; //save original position to variable
         OriginalRot = transform.rotation; //save original rotation to variable
+        Fire();
+        //HRB.AddRelativeForce(Vector3.forward * HarpoonOperation.HSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        /*if(Vector3.Distance(OriginalPos, transform.position) < HarpoonOperation.range) {
+            returnToGun();
+        }*/
     }
     public void Fire() {
-        while(Mathf.Sqrt(Mathf.Pow(transform.position.x - HarpoonOperation.HSpawn.transform.position.x, 2f) + Mathf.Pow(transform.position.y - HarpoonOperation.HSpawn.transform.position.y, 2f) + Mathf.Pow(transform.position.z - HarpoonOperation.HSpawn.transform.position.z, 2f)) < HarpoonOperation.range) {
-            HRB.AddRelativeForce(Vector3.forward * HarpoonOperation.HSpeed);
-        }
-        HRB.velocity = new Vector3(0, 0, 0);
+        HRB.AddRelativeForce(Vector3.forward * HarpoonOperation.HSpeed);
+        /*while(Mathf.Sqrt(Mathf.Pow(transform.position.x - HarpoonOperation.HSpawn.transform.position.x, 2f) + Mathf.Pow(transform.position.y - HarpoonOperation.HSpawn.transform.position.y, 2f) + Mathf.Pow(transform.position.z - HarpoonOperation.HSpawn.transform.position.z, 2f)) < HarpoonOperation.range) {
+            continue;
+        }*/
+        //while(Vector3.Distance(OriginalPos, transform.position) < HarpoonOperation.range) {
+        //    continue;
+        //}
+        //HRB.velocity = new Vector3(0, 0, 0);
         //HRB.AddRelativeForce();
-        returnToGun();
+        //returnToGun();
         HarpoonOperation.canFire = true;
     }
     void returnToGun() {
         transform.position = Vector3.MoveTowards(transform.position, OriginalPos, HarpoonOperation.HSpeed * Time.deltaTime);
         //UIManager.Method()
+        //HarpoonOperation.canFire = true;
     }
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "red fish" || other.gameObject.tag == "teal fish" || other.gameObject.tag == "orange fish") {

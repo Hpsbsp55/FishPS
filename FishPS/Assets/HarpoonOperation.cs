@@ -14,8 +14,8 @@ public class HarpoonOperation : MonoBehaviour
     void Start()
     {
         HSpawn = GameObject.FindGameObjectsWithTag("Harpoon Spawn")[0];
-        HSpeed = 1f;
-        range = 30;
+        HSpeed = 500f;
+        range = 1000;
         canFire = true;
         Debug.Log(HSpawn + "\n" + HSpeed + "\n" + range + "\n" + canFire);
         //ROF = 5; // how many seconds to reload
@@ -30,17 +30,21 @@ public class HarpoonOperation : MonoBehaviour
     }
     void CheckInput() {
         if(Input.GetMouseButtonDown(0)) { //if left mouse button is pressed
-            //canFire = false; //set canFire to false
+            canFire = false; //set canFire to false
+            //CameraMovement.lookSpeed = 0f;
             GameObject H; //initialize local harpoon variable
             H = Instantiate(HPrefab, HSpawn.transform.position, HSpawn.transform.rotation); //instantiate the harpoon aligned with the gun
-            Component[] HC = H.GetComponents(typeof(Component));
+            
+            /*Component[] HC = H.GetComponents(typeof(Component));
             foreach (Component component in HC) {
                 Debug.Log(component.ToString());
-            }
-            //H.GetComponent.Fire(); //call fire method
+            }*/
+            //Projectile p = H.GetComponent<Projectile>();
+            //Fire(); //call fire method from the Projectile script on the instance of the harpoon
+            //Projectile.Fire(); //
         }
     }
-    void Fire() {
+    //void Fire() {
         //GameObject H; //initialize local harpoon variable
         //H = Instantiate(HPrefab, HSpawn.transform.position, HSpawn.transform.rotation); //instantiate the harpoon aligned with the gun
         //while(Mathf.Sqrt(Mathf.Pow(H.transform.position.x - HSpawn.transform.position.x, 2f) + Mathf.Pow(H.transform.position.y - HSpawn.transform.position.y, 2f) + Mathf.Pow(H.transform.position.z - HSpawn.transform.position.z, 2f)) < range) {
@@ -49,5 +53,5 @@ public class HarpoonOperation : MonoBehaviour
         //HRB.AddRelativeForce();
         //canFire = true;
 
-    }
+    //}
 }
