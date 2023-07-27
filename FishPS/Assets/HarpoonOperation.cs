@@ -14,8 +14,8 @@ public class HarpoonOperation : MonoBehaviour
     void Start()
     {
         HSpawn = GameObject.FindGameObjectsWithTag("Harpoon Spawn")[0];
-        HSpeed = 500f;
-        range = 1000;
+        HSpeed = 30f;
+        range = 30;
         canFire = true;
         Debug.Log(HSpawn + "\n" + HSpeed + "\n" + range + "\n" + canFire);
         //ROF = 5; // how many seconds to reload
