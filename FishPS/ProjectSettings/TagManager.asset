@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - first spawn position
+  - second spanw position
+  - spawn position 2
+  - second spawn position
+  - third spawn position
+  - yellow fish
+  - orange fish
+  - red fish
+  - teal fish
   layers:
   - Default
   - TransparentFX
