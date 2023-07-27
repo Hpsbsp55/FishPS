@@ -1,6 +1,6 @@
 # This file uses centimeters as units for non-parametric coordinates.
 
-mtllib HarpoonGun.mtl
+mtllib HarpoonMain.mtl
 g default
 v -0.500000 -0.500000 2.500000
 v -0.416667 -0.500000 2.500013
