@@ -61,7 +61,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Value: -0.97
-    - _WoodScale: 8
+    - _Wood: 2
+    - _WoodScale: 4.38
     m_Colors:
     - _Color: {r: 0.5529412, g: 0.3882353, b: 0.27450982, a: 1}
     - _Color1: {r: 0.5529412, g: 0.3882353, b: 0.27450982, a: 0}
