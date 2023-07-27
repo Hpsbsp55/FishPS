@@ -25,7 +25,19 @@ public class UIManager : MonoBehaviour
     // The Current Fish (Used for buttons)
     public string currentFish;
 
-    
+    //get what fish is hits
+    public fishprice1 redfish;
+    public bool isredhit = false;
+
+    public fishprice2 tealfish;
+    public bool istealhit = false;
+
+    public fishprice2 orangefish;
+    public bool isorangehit = false;
+
+    public int currentmoney;
+
+
     void Start()
     {
         gameObject.SetActive(false);
@@ -35,7 +47,28 @@ public class UIManager : MonoBehaviour
     public void summonUI(string fish)
     {
         // Sets Public Fish to Summoned Fish
-        currentFish = fish;
+        //currentFish = fish;
+        isredhit = redfish.getifhit();
+
+        if(isredhit)
+        {
+            fish = "red";
+        }
+
+        istealhit = tealfish.getifhit();
+
+        if (isredhit)
+        {
+            fish = "teal";
+        }
+
+        isorangehit = orangefish.getifhit();  
+
+        if (isorangehit)
+        {
+            fish = "orange";
+        }
+
 
         // Setting Fish-Dependent UI
         if (fish == "red")
@@ -83,14 +116,17 @@ public class UIManager : MonoBehaviour
         if (currentFish == "red")
         {
             Debug.Log("Red Fish Sold");
+            //random money between 50-75
         }
         else if (currentFish == "orange")
         {
             Debug.Log("Orange Fish Sold");
+            //random between 75-100
         }
         else if (currentFish == "teal")
         {
             Debug.Log("teal Fish Sold");
+            //random between 100-125
         }
 
         //Hiding UI

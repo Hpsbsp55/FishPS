@@ -2,37 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fishprice1 : MonoBehaviour
+public class fishprice2 : MonoBehaviour
 {
     //public string fishtype = "red";
-    public bool redcollide = false;
+    public bool tealcollide = false;
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
-        
+
     }
 
     //public string Gettype()
     //{
-        //return fishtype;
+    //return fishtype;
     //}
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "hook")
         {
-            redcollide = true;
+            tealcollide = true;
         }
     }
 
     public bool getifhit()
     {
-        return redcollide;
+        return tealcollide;
     }
 
 
