@@ -18,6 +18,11 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*if(HarpoonOperation.canFire == false) {
+            lookSpeed = 0f;
+        } else { 
+            lookSpeed = 2f;
+        }*/
         //Vector3 mPos = Input.mousePosition;
         float lookX = Input.GetAxis("Mouse X") * lookSpeed;
         float lookY = Input.GetAxis("Mouse Y") * lookSpeed;
