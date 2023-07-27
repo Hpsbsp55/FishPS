@@ -32,10 +32,10 @@ public class UIManager : MonoBehaviour
     public fishprice2 tealfish;
     public bool istealhit = false;
 
-    public fishprice2 orangefish;
+    public fishprice3 orangefish;
     public bool isorangehit = false;
 
-    public int currentmoney;
+    public int currentmoney = -2000;
 
 
     void Start()
@@ -53,13 +53,15 @@ public class UIManager : MonoBehaviour
         if(isredhit)
         {
             fish = "red";
+            isredhit = false;
         }
 
         istealhit = tealfish.getifhit();
 
-        if (isredhit)
+        if (istealhit)
         {
             fish = "teal";
+            istealhit = false;
         }
 
         isorangehit = orangefish.getifhit();  
@@ -67,6 +69,7 @@ public class UIManager : MonoBehaviour
         if (isorangehit)
         {
             fish = "orange";
+            isorangehit = false;
         }
 
 
@@ -117,19 +120,27 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log("Red Fish Sold");
             //random money between 50-75
+            currentmoney += Random.Range(50, 76);
         }
         else if (currentFish == "orange")
         {
             Debug.Log("Orange Fish Sold");
             //random between 75-100
+            currentmoney += Random.Range(75, 101);
         }
         else if (currentFish == "teal")
         {
             Debug.Log("teal Fish Sold");
             //random between 100-125
+            currentmoney += Random.Range(100, 151);
         }
 
         //Hiding UI
         gameObject.SetActive(false);
+    }
+
+    public int Getcurrentmoney()
+    {
+        return currentmoney;
     }
 }

@@ -704,6 +704,15 @@ MonoBehaviour:
   sellButton: {fileID: 169365630}
   eatButton: {fileID: 225562141}
   currentFish: 
+  redfish: {fileID: 2016082460570037915, guid: f5027dc882699544cb815f9a29a7205f, type: 3}
+  isredhit: 0
+  tealfish: {fileID: -4792300942254131182, guid: 8bb75d97633bb3a46b840635ac95d4c3,
+    type: 3}
+  istealhit: 0
+  orangefish: {fileID: 2314611369765415773, guid: 26c1728d6fbad35428b48376b07392bf,
+    type: 3}
+  isorangehit: 0
+  currentmoney: -2000
 --- !u!1 &352100156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,6 +1553,7 @@ GameObject:
   - component: {fileID: 2068523067}
   - component: {fileID: 2068523069}
   - component: {fileID: 2068523068}
+  - component: {fileID: 2068523070}
   m_Layer: 5
   m_Name: FishKoinAmount
   m_TagString: Untagged
@@ -1669,3 +1679,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068523066}
   m_CullTransparentMesh: 1
+--- !u!114 &2068523070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068523066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42230df8e48a1ef46a7b94496a3fabd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountofmoney: {fileID: 300263546}
+  displaymoney: -2000
+  mytext: {fileID: 2068523068}

@@ -3,7 +3,20 @@ guid: 3975c3cccdb7f224fb1e7e8050379289
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - redFish: {instanceID: 0}
+  - orangeFish: {instanceID: 0}
+  - tealFish: {instanceID: 0}
+  - fishImage: {instanceID: 0}
+  - fishText: {instanceID: 0}
+  - sellButton: {instanceID: 0}
+  - eatButton: {instanceID: 0}
+  - redfish: {fileID: 2016082460570037915, guid: f5027dc882699544cb815f9a29a7205f,
+      type: 3}
+  - tealfish: {fileID: -4792300942254131182, guid: 8bb75d97633bb3a46b840635ac95d4c3,
+      type: 3}
+  - orangefish: {fileID: 2314611369765415773, guid: 26c1728d6fbad35428b48376b07392bf,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
