@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
     {
         
     }
-    void Fire() {
+    public void Fire() {
         while(Mathf.Sqrt(Mathf.Pow(transform.position.x - HarpoonOperation.HSpawn.transform.position.x, 2f) + Mathf.Pow(transform.position.y - HarpoonOperation.HSpawn.transform.position.y, 2f) + Mathf.Pow(transform.position.z - HarpoonOperation.HSpawn.transform.position.z, 2f)) < HarpoonOperation.range) {
             HRB.AddRelativeForce(Vector3.forward * HarpoonOperation.HSpeed);
         }

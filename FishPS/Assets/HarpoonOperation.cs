@@ -33,7 +33,11 @@ public class HarpoonOperation : MonoBehaviour
             //canFire = false; //set canFire to false
             GameObject H; //initialize local harpoon variable
             H = Instantiate(HPrefab, HSpawn.transform.position, HSpawn.transform.rotation); //instantiate the harpoon aligned with the gun
-            H.GetComponent(Projectile).Fire(); //call fire method
+            Component[] HC = H.GetComponents(typeof(Component));
+            foreach (Component component in HC) {
+                Debug.Log(component.ToString());
+            }
+            //H.GetComponent.Fire(); //call fire method
         }
     }
     void Fire() {
