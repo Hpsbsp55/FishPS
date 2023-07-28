@@ -17,8 +17,7 @@ public class StartScreenManager : MonoBehaviour
     //  Button Functions
     public void StartGame()
     {
-        Debug.Log("SceneChange");
-        //SceneManager.LoadScene(/*SceneName*/); <---- PUT MAIN SCENE HERE
+        SceneManager.LoadScene("MainScene");
     }
 
     public void QuitGame()

@@ -146,6 +146,8 @@ MonoBehaviour:
   isspawn1: 0
   isspawn2: 0
   hooked: 0
+  eaten: 0
+  sold: 0
 --- !u!114 &2016082460570037915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +160,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3a6a6449c02ae48a3cd4ac57976806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  redcollide: 0
