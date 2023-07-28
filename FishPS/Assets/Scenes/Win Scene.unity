@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Credits
+  m_text: CREDITS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ff5cd1fa84181647b8c00d080625735, type: 2}
   m_sharedMaterial: {fileID: 1192563925270443227, guid: 3ff5cd1fa84181647b8c00d080625735,
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You paid off your debt!
+  m_text: YOU PAID OFF YOUR DEBT!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ff5cd1fa84181647b8c00d080625735, type: 2}
   m_sharedMaterial: {fileID: 1192563925270443227, guid: 3ff5cd1fa84181647b8c00d080625735,
@@ -1043,8 +1043,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Vaughan Walkosak - Programmer\nGriffin Brawer - Programmer \nSean Ammon
-    - 3D art + programming\nMichelle Cooke - UI\nMarin Garrison - Cat model"
+  m_text: 'VAUGHAN WALKOSAK - PROGRAMMER
+
+    GRIFFIN BRAWER - PROGRAMMER
+
+    SEAN
+    AMMON - 3D ART + PROGRAMMING
+
+    MICHELLE COOKE - UI
+
+    MARIN GARRISON - CAT
+    MODEL'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ff5cd1fa84181647b8c00d080625735, type: 2}
   m_sharedMaterial: {fileID: 1192563925270443227, guid: 3ff5cd1fa84181647b8c00d080625735,
