@@ -50,9 +50,10 @@ public class UIManager : MonoBehaviour
 
     public void summonUI(string fish)
     {
+        Debug.Log("POPUP");
         // Sets Public Fish to Summoned Fish
         //currentFish = fish;
-        /*isredhit = redfish.getifhit();
+        isredhit = redfish.getifhit();
 
         if(isredhit)
         {
@@ -74,7 +75,7 @@ public class UIManager : MonoBehaviour
         {
             fish = "orange";
             isorangehit = false;
-        }*/
+        }
         currentFish = fish;
 
 

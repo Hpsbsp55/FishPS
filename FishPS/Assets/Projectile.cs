@@ -34,31 +34,34 @@ public class Projectile : MonoBehaviour
         }
     }
     void returnToGun() {
-        HRB.velocity = Vector3.Normalize(HarpoonOperation.HSpawn.transform.position - transform.position) * (HarpoonOperation.HSpeed * Mathf.Pow(Powerups.speedIncrement, Powerups.speedFactor) / 3f); //set the harpoon's velocity
+        GameObject player = GameObject.FindGameObjectWithTag("projectileDestroyer");
+        HRB.velocity = Vector3.Normalize(player.transform.position - transform.position) * (HarpoonOperation.HSpeed * Mathf.Pow(Powerups.speedIncrement, Powerups.speedFactor) / 2f); //set the harpoon's velocity
         if (fish != null) {
             fish.GetComponent<Rigidbody>().velocity = HRB.velocity; //set the fish's velocity to the harpoon's velocity
         }
     }
     void OnTriggerEnter(Collider other) {
+        Debug.Log(other.gameObject.name);
         //Quaternion fishR;
         //Vector3 fishS;
         if (other.gameObject.tag == "red fish")
         {
             fish = other.gameObject; //get fish gameobject
-            Powerups.rangeTimer += 30f;
-            Powerups.rangeFactor += 1f;
+            /*Powerups.rangeTimer += 30f;
+            Powerups.rangeFactor += 1f;*/
             returnToGun(); //run the returnToGun
         } else if (other.gameObject.tag == "teal fish") {
             fish = other.gameObject; //get fish gameobject
-            Powerups.speedTimer += 30f;
-            Powerups.speedFactor += 1f;
+            /*Powerups.speedTimer += 30f;
+            Powerups.speedFactor += 1f;*/
             returnToGun(); //run the returnToGun
         } else if (other.gameObject.tag == "orange fish") {
             fish = other.gameObject; //get fish gameobject
-            Powerups.spawnTimer += 30f;
-            Powerups.spawnFactor += 1f;
+            /*Powerups.spawnTimer += 30f;
+            Powerups.spawnFactor += 1f;*/
             returnToGun(); //run the returnToGun
         } else if(other.gameObject.tag == "projectileDestroyer") {
+            
 
             if (fish != null)
             {
@@ -66,6 +69,14 @@ public class Projectile : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
                 Debug.Log(CameraMovement.cursorCaptured);
+                Debug.Log(fish.tag);
+                if (fish.tag != null) {
+                    string ftag = fish.tag;
+                    ftag = ftag.Substring(0, ftag.IndexOf(" "));
+                    Debug.Log(ftag);
+                    UIManager.Instance.summonUI(ftag);
+                }
+                /*
                 if (fish.tag == "red fish")
                 {
                     UIManager.Instance.summonUI("red");
@@ -77,7 +88,7 @@ public class Projectile : MonoBehaviour
                 else if (fish.tag == "orange fish")
                 {
                     UIManager.Instance.summonUI("orange");
-                }
+                }*/
                 Destroy(fish);
             }
             Destroy(this.gameObject);
