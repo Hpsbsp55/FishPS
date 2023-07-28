@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody HRB; //Harpoon Rigidbody
     private Vector3 OriginalPos; //spawn position of harpoon hook
     private Quaternion OriginalRot; //spawn rotation of harpoon hook
+    private GameObject fish; //initialize fish gameObject
     // Start is called before the first frame update
     void Start()
     {
@@ -42,14 +43,31 @@ public class Projectile : MonoBehaviour
     //}
     void returnToGun() {
         //transform.position = Vector3.MoveTowards(transform.position, OriginalPos, HarpoonOperation.HSpeed * Time.deltaTime);
-        HRB.velocity = Vector3.Normalize(HarpoonOperation.HSpawn.transform.position - transform.position) * (HarpoonOperation.HSpeed / 3f);
+        HRB.velocity = Vector3.Normalize(HarpoonOperation.HSpawn.transform.position - transform.position) * (HarpoonOperation.HSpeed / 3f); //set the harpoon's velocity
+        if(fish != null)
+            fish.GetComponent<Rigidbody>().velocity = HRB.velocity; //set the fish's velocity to the harpoon's veloctiy
         HarpoonOperation.canFire = true;
     }
     void OnTriggerEnter(Collider other) {
+        //Quaternion fishR;
+        //Vector3 fishS;
         if(other.gameObject.tag == "red fish" || other.gameObject.tag == "teal fish" || other.gameObject.tag == "orange fish") {
-            other.gameObject.transform.parent = transform.parent;
-            returnToGun();
+            //fish = other.transform;
+            /*fishP = other.gameObject.transform.position;
+            fishR = other.gameObject.transform.rotation;
+            fishS = other.gameObject.transform.localScale;
+
+            other.gameObject.transform.parent = transform;
+            //other.transform = fish;
+            other.gameObject.transform.position = fishP;
+            other.gameObject.transform.rotation = fishR;
+            other.gameObject.transform.localScale = fishS;*/
+            fish = other.gameObject; //get fish gameobject
+            //other.GetComponent<Rigidbody>().velocity = Vector3.Normalize(HarpoonOperation.HSpawn.transform.position - transform.position) * (HarpoonOperation.HSpeed / 3f); //set the fish's velocity the same way that the harpoon's velocity is set
+            returnToGun(); //run the returnToGun
         } else if(other.gameObject.tag == "projectileDestroyer") {
+            if(fish != null)
+                Destroy(fish);
             Destroy(this.gameObject);
         }
     }

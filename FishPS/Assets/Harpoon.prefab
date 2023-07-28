@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1183245182020496916}
   m_Layer: 0
   m_Name: Harpoon
-  m_TagString: Untagged
+  m_TagString: hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
