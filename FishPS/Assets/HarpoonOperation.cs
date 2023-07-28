@@ -42,23 +42,6 @@ public class HarpoonOperation : MonoBehaviour
                 GameObject H; //initialize local harpoon variable
                 H = Instantiate(HPrefab, HSpawn.transform.position, HSpawn.transform.rotation); //instantiate the harpoon aligned with the gun
             }
-            /*Component[] HC = H.GetComponents(typeof(Component));
-            foreach (Component component in HC) {
-                Debug.Log(component.ToString());
-            }*/
-            //Projectile p = H.GetComponent<Projectile>();
-            //Fire(); //call fire method from the Projectile script on the instance of the harpoon
-            //Projectile.Fire(); //
         }
     }
-    //void Fire() {
-        //GameObject H; //initialize local harpoon variable
-        //H = Instantiate(HPrefab, HSpawn.transform.position, HSpawn.transform.rotation); //instantiate the harpoon aligned with the gun
-        //while(Mathf.Sqrt(Mathf.Pow(H.transform.position.x - HSpawn.transform.position.x, 2f) + Mathf.Pow(H.transform.position.y - HSpawn.transform.position.y, 2f) + Mathf.Pow(H.transform.position.z - HSpawn.transform.position.z, 2f)) < range) {
-        //    HRB.AddRelativeForce(Vector3.forward * HSpeed);
-        //}
-        //HRB.AddRelativeForce();
-        //canFire = true;
-
-    //}
 }

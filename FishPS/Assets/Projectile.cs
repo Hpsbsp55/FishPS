@@ -28,45 +28,16 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(Mathf.Abs(Mathf.Sqrt(Mathf.Pow((transform.position.x - HarpoonOperation.HSpawn.transform.position.x), 2f) + Mathf.Pow((transform.position.y - HarpoonOperation.HSpawn.transform.position.y), 2f) + Mathf.Pow((transform.position.z - HarpoonOperation.HSpawn.transform.position.z), 2f))) > HarpoonOperation.range) {
-        if(Vector3.Distance(OriginalPos, transform.position) > HarpoonOperation.range) {
+        if(Vector3.Distance(OriginalPos, transform.position) > HarpoonOperation.range * Mathf.Pow(Powerups.rangeIncrement, Powerups.rangeFactor)) {
             //Debug.Log("E");
             returnToGun();
         }
-        //Debug.Log(Mathf.Abs(Mathf.Sqrt(Mathf.Pow((transform.position.x - HarpoonOperation.HSpawn.transform.position.x), 2f) + Mathf.Pow((transform.position.y - HarpoonOperation.HSpawn.transform.position.y), 2f) + Mathf.Pow((transform.position.z - HarpoonOperation.HSpawn.transform.position.z), 2f))));
     }
-    //public void Fire() {
-    //HRB.AddRelativeForce(Vector3.forward * HarpoonOperation.HSpeed);
-    //while(Mathf.Sqrt(Mathf.Pow(transform.position.x - HarpoonOperation.HSpawn.transform.position.x, 2f) + Mathf.Pow(transform.position.y - HarpoonOperation.HSpawn.transform.position.y, 2f) + Mathf.Pow(transform.position.z - HarpoonOperation.HSpawn.transform.position.z, 2f)) < HarpoonOperation.range) {
-    //    continue;
-    //}
-    //while(Vector3.Distance(OriginalPos, transform.position) < HarpoonOperation.range) {
-    //    continue;
-    //}
-    //HRB.velocity = new Vector3(0, 0, 0);
-    //HRB.AddRelativeForce();
-    //returnToGun();
-    //HarpoonOperation.canFire = true;
-    //}
     void returnToGun() {
-
-        //FishUIPopUp = GameObject.Find("PopUp");
-        //transform.position = Vector3.MoveTowards(transform.position, OriginalPos, HarpoonOperation.HSpeed * Time.deltaTime);
-        HRB.velocity = Vector3.Normalize(HarpoonOperation.HSpawn.transform.position - transform.position) * (HarpoonOperation.HSpeed / 3f); //set the harpoon's velocity
+        HRB.velocity = Vector3.Normalize(HarpoonOperation.HSpawn.transform.position - transform.position) * (HarpoonOperation.HSpeed * Mathf.Pow(Powerups.speedIncrement, Powerups.speedFactor) / 3f); //set the harpoon's velocity
         if (fish != null) {
             fish.GetComponent<Rigidbody>().velocity = HRB.velocity; //set the fish's velocity to the harpoon's velocity
-            /* (fish.tag == "red fish")
-            {
-                UIManager.Instance.summonUI("red");
-            } else if (fish.tag == "teal fish")
-            {
-                UIManager.Instance.summonUI("teal");
-            } else if (fish.tag == "orange fish")
-            {   
-                UIManager.Instance.summonUI("orange");
-            }*/
         }
-        //HarpoonOperation.canFire = true;
     }
     void OnTriggerEnter(Collider other) {
         //Quaternion fishR;
@@ -74,18 +45,18 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.tag == "red fish")
         {
             fish = other.gameObject; //get fish gameobject
-            //Powerups.rangeTimer += 30f;
-            //Powerups.rangeFactor += 1f;
+            Powerups.rangeTimer += 30f;
+            Powerups.rangeFactor += 1f;
             returnToGun(); //run the returnToGun
         } else if (other.gameObject.tag == "teal fish") {
             fish = other.gameObject; //get fish gameobject
-            //Powerups.speedTimer += 30f;
-            //Powerups.speedFactor += 1f;
+            Powerups.speedTimer += 30f;
+            Powerups.speedFactor += 1f;
             returnToGun(); //run the returnToGun
         } else if (other.gameObject.tag == "orange fish") {
             fish = other.gameObject; //get fish gameobject
-            //Powerups.spawnTimer += 30f;
-            //Powerups.spawnFactor += 1f;
+            Powerups.spawnTimer += 30f;
+            Powerups.spawnFactor += 1f;
             returnToGun(); //run the returnToGun
         } else if(other.gameObject.tag == "projectileDestroyer") {
 
