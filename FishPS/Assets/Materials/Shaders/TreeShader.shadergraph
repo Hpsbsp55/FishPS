@@ -32,6 +32,9 @@
         },
         {
             "m_Id": "9d0e773fa6434311b95c69419324fbed"
+        },
+        {
+            "m_Id": "b42f5d3ff4e841a5884ba81dc3a00166"
         }
     ],
     "m_GroupDatas": [],
@@ -63,6 +66,20 @@
                     "m_Id": "4724e5f25d1144dfa890cbdadc8a1345"
                 },
                 "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "b42f5d3ff4e841a5884ba81dc3a00166"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "9d0e773fa6434311b95c69419324fbed"
+                },
+                "m_SlotId": 1
             }
         }
     ],
@@ -433,6 +450,41 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "b42f5d3ff4e841a5884ba81dc3a00166",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -623.2000122070313,
+            "y": 171.19998168945313,
+            "width": 150.39999389648438,
+            "height": 33.600006103515628
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "cdfc5e3ef16c4354a51f8033742fbe27"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "08ff9891c5314c4cab72aea67f49a3e4"
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.NormalMaterialSlot",
     "m_ObjectId": "bc2144e11cfd45228dc62d8c5d823701",
     "m_Id": 0,
@@ -501,6 +553,19 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "VertexDescription.Position"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
+    "m_ObjectId": "cdfc5e3ef16c4354a51f8033742fbe27",
+    "m_Id": 0,
+    "m_DisplayName": "BaseTexture",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_BareResource": false
 }
 
 {

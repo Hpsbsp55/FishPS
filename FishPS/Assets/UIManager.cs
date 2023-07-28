@@ -12,9 +12,9 @@ public class UIManager : MonoBehaviour
     public Sprite tealFish;
 
     // Fish Texts References
-    string OFText = "You caught an Orange Fish!";
-    string RFText = "You caught an Red Fish!";
-    string TFText = "You caught an Teal Fish!";
+    string OFText = "YOU CAUGHT AN ORANGE FISH!";
+    string RFText = "YOU CAUGHT A RED FISH!";
+    string TFText = "YOU CAUGHT A TEAL FISH!";
 
     // UI Widgets
     public Image fishImage;
