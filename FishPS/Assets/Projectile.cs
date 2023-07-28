@@ -8,7 +8,12 @@ public class Projectile : MonoBehaviour
     private Vector3 OriginalPos; //spawn position of harpoon hook
     private Quaternion OriginalRot; //spawn rotation of harpoon hook
     private GameObject fish; //initialize fish gameObject
-    // Start is called before the first frame update
+                             // Start is called before the first frame update
+
+    //public UIManager manager = new UIManager();
+
+    // UI Game Object
+    //GameObject FishUIPopUp;
     void Start()
     {
         HRB = GetComponent<Rigidbody>();
@@ -16,6 +21,9 @@ public class Projectile : MonoBehaviour
         OriginalRot = transform.rotation; //save original rotation to variable
         //Fire();
         HRB.velocity = transform.forward * HarpoonOperation.HSpeed;
+        //FishUIPopUp = GameObject.FindGameObjectWithTag("PopUp");
+        //Debug.Log(FishUIPopUp);
+        UIManager.Instance.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,30 +31,43 @@ public class Projectile : MonoBehaviour
     {
         //if(Mathf.Abs(Mathf.Sqrt(Mathf.Pow((transform.position.x - HarpoonOperation.HSpawn.transform.position.x), 2f) + Mathf.Pow((transform.position.y - HarpoonOperation.HSpawn.transform.position.y), 2f) + Mathf.Pow((transform.position.z - HarpoonOperation.HSpawn.transform.position.z), 2f))) > HarpoonOperation.range) {
         if(Vector3.Distance(OriginalPos, transform.position) > HarpoonOperation.range) {
-            Debug.Log("E");
+            //Debug.Log("E");
             returnToGun();
         }
         //Debug.Log(Mathf.Abs(Mathf.Sqrt(Mathf.Pow((transform.position.x - HarpoonOperation.HSpawn.transform.position.x), 2f) + Mathf.Pow((transform.position.y - HarpoonOperation.HSpawn.transform.position.y), 2f) + Mathf.Pow((transform.position.z - HarpoonOperation.HSpawn.transform.position.z), 2f))));
     }
     //public void Fire() {
-        //HRB.AddRelativeForce(Vector3.forward * HarpoonOperation.HSpeed);
-        //while(Mathf.Sqrt(Mathf.Pow(transform.position.x - HarpoonOperation.HSpawn.transform.position.x, 2f) + Mathf.Pow(transform.position.y - HarpoonOperation.HSpawn.transform.position.y, 2f) + Mathf.Pow(transform.position.z - HarpoonOperation.HSpawn.transform.position.z, 2f)) < HarpoonOperation.range) {
-        //    continue;
-        //}
-        //while(Vector3.Distance(OriginalPos, transform.position) < HarpoonOperation.range) {
-        //    continue;
-        //}
-        //HRB.velocity = new Vector3(0, 0, 0);
-        //HRB.AddRelativeForce();
-        //returnToGun();
-        //HarpoonOperation.canFire = true;
+    //HRB.AddRelativeForce(Vector3.forward * HarpoonOperation.HSpeed);
+    //while(Mathf.Sqrt(Mathf.Pow(transform.position.x - HarpoonOperation.HSpawn.transform.position.x, 2f) + Mathf.Pow(transform.position.y - HarpoonOperation.HSpawn.transform.position.y, 2f) + Mathf.Pow(transform.position.z - HarpoonOperation.HSpawn.transform.position.z, 2f)) < HarpoonOperation.range) {
+    //    continue;
+    //}
+    //while(Vector3.Distance(OriginalPos, transform.position) < HarpoonOperation.range) {
+    //    continue;
+    //}
+    //HRB.velocity = new Vector3(0, 0, 0);
+    //HRB.AddRelativeForce();
+    //returnToGun();
+    //HarpoonOperation.canFire = true;
     //}
     void returnToGun() {
+
+        //FishUIPopUp = GameObject.Find("PopUp");
         //transform.position = Vector3.MoveTowards(transform.position, OriginalPos, HarpoonOperation.HSpeed * Time.deltaTime);
         HRB.velocity = Vector3.Normalize(HarpoonOperation.HSpawn.transform.position - transform.position) * (HarpoonOperation.HSpeed / 3f); //set the harpoon's velocity
-        if(fish != null)
-            fish.GetComponent<Rigidbody>().velocity = HRB.velocity; //set the fish's velocity to the harpoon's veloctiy
-        HarpoonOperation.canFire = true;
+        if (fish != null) {
+            fish.GetComponent<Rigidbody>().velocity = HRB.velocity; //set the fish's velocity to the harpoon's velocity
+            /* (fish.tag == "red fish")
+            {
+                UIManager.Instance.summonUI("red");
+            } else if (fish.tag == "teal fish")
+            {
+                UIManager.Instance.summonUI("teal");
+            } else if (fish.tag == "orange fish")
+            {   
+                UIManager.Instance.summonUI("orange");
+            }*/
+        }
+        //HarpoonOperation.canFire = true;
     }
     void OnTriggerEnter(Collider other) {
         //Quaternion fishR;
@@ -66,9 +87,28 @@ public class Projectile : MonoBehaviour
             //other.GetComponent<Rigidbody>().velocity = Vector3.Normalize(HarpoonOperation.HSpawn.transform.position - transform.position) * (HarpoonOperation.HSpeed / 3f); //set the fish's velocity the same way that the harpoon's velocity is set
             returnToGun(); //run the returnToGun
         } else if(other.gameObject.tag == "projectileDestroyer") {
-            if(fish != null)
+
+            if (fish != null)
+            {
+                Debug.Log(CameraMovement.cursorCaptured);
+                CameraMovement.ChangeCursorMode();
+                Debug.Log(CameraMovement.cursorCaptured);
+                if (fish.tag == "red fish")
+                {
+                    UIManager.Instance.summonUI("red");
+                }
+                else if (fish.tag == "teal fish")
+                {
+                    UIManager.Instance.summonUI("teal");
+                }
+                else if (fish.tag == "orange fish")
+                {
+                    UIManager.Instance.summonUI("orange");
+                }
                 Destroy(fish);
+            }
             Destroy(this.gameObject);
+            HarpoonOperation.canFire = true;
         }
     }
 }

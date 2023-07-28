@@ -14,6 +14,9 @@ TagManager:
   - red fish
   - teal fish
   - projectileDestroyer
+  - hook
+  - Harpoon Spawn
+  - PopUp
   layers:
   - Default
   - TransparentFX

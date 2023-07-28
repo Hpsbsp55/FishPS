@@ -24,17 +24,23 @@ public class HarpoonOperation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canFire) { //if harpoon can be fired
+        if (canFire) { //if harpoon can be fired
             CheckInput();
         }
     }
     void CheckInput() {
         if(Input.GetMouseButtonDown(0)) { //if left mouse button is pressed
-            canFire = false; //set canFire to false
-            //CameraMovement.lookSpeed = 0f;
-            GameObject H; //initialize local harpoon variable
-            H = Instantiate(HPrefab, HSpawn.transform.position, HSpawn.transform.rotation); //instantiate the harpoon aligned with the gun
-            
+            if (!CameraMovement.cursorCaptured)
+            {
+                CameraMovement.cursorCaptured = true;
+            }
+            else
+            {
+                canFire = false; //set canFire to false
+                                 //CameraMovement.lookSpeed = 0f;
+                GameObject H; //initialize local harpoon variable
+                H = Instantiate(HPrefab, HSpawn.transform.position, HSpawn.transform.rotation); //instantiate the harpoon aligned with the gun
+            }
             /*Component[] HC = H.GetComponents(typeof(Component));
             foreach (Component component in HC) {
                 Debug.Log(component.ToString());

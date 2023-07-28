@@ -6,6 +6,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance { get; private set; }
     // Fish Image References
     public Sprite redFish;
     public Sprite orangeFish;
@@ -27,16 +28,19 @@ public class UIManager : MonoBehaviour
 
     //get what fish is hits
     public fishprice1 redfish;
-    public bool isredhit = false;
+    public static bool isredhit = false;
 
     public fishprice2 tealfish;
-    public bool istealhit = false;
+    public static bool istealhit = false;
 
     public fishprice3 orangefish;
-    public bool isorangehit = false;
+    public static bool isorangehit = false;
 
     public int currentmoney = -2000;
-
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -110,6 +114,7 @@ public class UIManager : MonoBehaviour
         }
 
         //Hiding UI
+        CameraMovement.ChangeCursorMode();
         gameObject.SetActive(false);
     }
 
@@ -136,6 +141,7 @@ public class UIManager : MonoBehaviour
         }
 
         //Hiding UI
+        CameraMovement.ChangeCursorMode();
         gameObject.SetActive(false);
     }
 

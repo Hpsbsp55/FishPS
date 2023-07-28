@@ -7,12 +7,27 @@ public class CameraMovement : MonoBehaviour
     public Transform player;
     public static float lookSpeed = 2f;
     [SerializeField] float VRotation;
+    public static bool cursorCaptured = false;
     //public Camera Main;
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; //confines cursor to window
         Cursor.visible = false; //makes cursor invisible
+
+    }
+    public static void ChangeCursorMode()
+    {
+        if(cursorCaptured)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
+            cursorCaptured = false;
+        } else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = true;
+        }
     }
 
     // Update is called once per frame
