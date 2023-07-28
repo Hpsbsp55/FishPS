@@ -16,7 +16,7 @@ public class CameraMovement : MonoBehaviour
         Cursor.visible = false; //makes cursor invisible
 
     }
-    public static void ChangeCursorMode()
+    /*public static void ChangeCursorMode()
     {
         if(cursorCaptured)
         {
@@ -27,8 +27,9 @@ public class CameraMovement : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = true;
+            cursorCaptured = true;
         }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()

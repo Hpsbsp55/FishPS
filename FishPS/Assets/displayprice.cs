@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -25,5 +26,10 @@ public class displayprice : MonoBehaviour
     {
         displaymoney = amountofmoney.Getcurrentmoney();
         mytext.text = displaymoney.ToString();
+
+        if (displaymoney >= 0)
+        {
+            SceneManager.LoadScene("Win Scene");
+        }
     }
 }

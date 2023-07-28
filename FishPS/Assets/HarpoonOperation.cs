@@ -19,6 +19,7 @@ public class HarpoonOperation : MonoBehaviour
         canFire = true;
         Debug.Log(HSpawn + "\n" + HSpeed + "\n" + range + "\n" + canFire);
         //ROF = 5; // how many seconds to reload
+        UIManager.Instance.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

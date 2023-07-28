@@ -13,9 +13,9 @@ public class UIManager : MonoBehaviour
     public Sprite tealFish;
 
     // Fish Texts References
-    string OFText = "You caught an Orange Fish!";
-    string RFText = "You caught an Red Fish!";
-    string TFText = "You caught an Teal Fish!";
+    string OFText = "YOU CAUGHT AN ORANGE FISH!";
+    string RFText = "YOU CAUGHT A RED FISH!";
+    string TFText = "YOU CAUGHT A TEAL FISH!";
 
     // UI Widgets
     public Image fishImage;
@@ -52,7 +52,7 @@ public class UIManager : MonoBehaviour
     {
         // Sets Public Fish to Summoned Fish
         //currentFish = fish;
-        isredhit = redfish.getifhit();
+        /*isredhit = redfish.getifhit();
 
         if(isredhit)
         {
@@ -74,7 +74,8 @@ public class UIManager : MonoBehaviour
         {
             fish = "orange";
             isorangehit = false;
-        }
+        }*/
+        currentFish = fish;
 
 
         // Setting Fish-Dependent UI
@@ -114,7 +115,9 @@ public class UIManager : MonoBehaviour
         }
 
         //Hiding UI
-        CameraMovement.ChangeCursorMode();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        CameraMovement.cursorCaptured = false;
         gameObject.SetActive(false);
     }
 
@@ -126,22 +129,28 @@ public class UIManager : MonoBehaviour
             Debug.Log("Red Fish Sold");
             //random money between 50-75
             currentmoney += Random.Range(50, 76);
+            Debug.Log(currentmoney);
         }
         else if (currentFish == "orange")
         {
             Debug.Log("Orange Fish Sold");
             //random between 75-100
             currentmoney += Random.Range(75, 101);
+            Debug.Log(currentmoney);
         }
         else if (currentFish == "teal")
         {
             Debug.Log("teal Fish Sold");
             //random between 100-125
             currentmoney += Random.Range(100, 151);
+            Debug.Log(currentmoney);
         }
 
         //Hiding UI
-        CameraMovement.ChangeCursorMode();
+        Debug.Log("e");
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        CameraMovement.cursorCaptured = false;
         gameObject.SetActive(false);
     }
 

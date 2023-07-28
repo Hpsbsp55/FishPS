@@ -23,7 +23,6 @@ public class Projectile : MonoBehaviour
         HRB.velocity = transform.forward * HarpoonOperation.HSpeed;
         //FishUIPopUp = GameObject.FindGameObjectWithTag("PopUp");
         //Debug.Log(FishUIPopUp);
-        UIManager.Instance.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -72,26 +71,29 @@ public class Projectile : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         //Quaternion fishR;
         //Vector3 fishS;
-        if(other.gameObject.tag == "red fish" || other.gameObject.tag == "teal fish" || other.gameObject.tag == "orange fish") {
-            //fish = other.transform;
-            /*fishP = other.gameObject.transform.position;
-            fishR = other.gameObject.transform.rotation;
-            fishS = other.gameObject.transform.localScale;
-
-            other.gameObject.transform.parent = transform;
-            //other.transform = fish;
-            other.gameObject.transform.position = fishP;
-            other.gameObject.transform.rotation = fishR;
-            other.gameObject.transform.localScale = fishS;*/
+        if (other.gameObject.tag == "red fish")
+        {
             fish = other.gameObject; //get fish gameobject
-            //other.GetComponent<Rigidbody>().velocity = Vector3.Normalize(HarpoonOperation.HSpawn.transform.position - transform.position) * (HarpoonOperation.HSpeed / 3f); //set the fish's velocity the same way that the harpoon's velocity is set
+            //Powerups.rangeTimer += 30f;
+            //Powerups.rangeFactor += 1f;
+            returnToGun(); //run the returnToGun
+        } else if (other.gameObject.tag == "teal fish") {
+            fish = other.gameObject; //get fish gameobject
+            //Powerups.speedTimer += 30f;
+            //Powerups.speedFactor += 1f;
+            returnToGun(); //run the returnToGun
+        } else if (other.gameObject.tag == "orange fish") {
+            fish = other.gameObject; //get fish gameobject
+            //Powerups.spawnTimer += 30f;
+            //Powerups.spawnFactor += 1f;
             returnToGun(); //run the returnToGun
         } else if(other.gameObject.tag == "projectileDestroyer") {
 
             if (fish != null)
             {
                 Debug.Log(CameraMovement.cursorCaptured);
-                CameraMovement.ChangeCursorMode();
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
                 Debug.Log(CameraMovement.cursorCaptured);
                 if (fish.tag == "red fish")
                 {
