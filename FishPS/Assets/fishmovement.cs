@@ -58,108 +58,154 @@ public class fishmovement : MonoBehaviour
 
     public void move1()
     {
-        rb.velocity = new Vector3(0, 0, 10);
-        ismove = false;
-        Invoke("move11", 1.5f);
+        if (!hooked)
+        {
+            rb.velocity = new Vector3(0, 0, 10);
+            ismove = false;
+            Invoke("move11", 1.5f);
+        }
     }
 
     public void move11()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(-10, 0, 0);
-        Invoke("move111", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(-10, 0, 0);
+            Invoke("move111", 3);
+        }
     }
 
     public void move111()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(0, 0, -10);
-        Invoke("move1111", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(0, 0, -10);
+            Invoke("move1111", 3);
+        }
     }
     
     public void move1111()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(10, 0, 0);
-        Invoke("move11111", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(10, 0, 0);
+            Invoke("move11111", 3);
+        }
     }
 
     public void move11111()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(0, 0, 10);
-        Invoke("move11", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(0, 0, 10);
+            Invoke("move11", 3);
+        }
     }
 
     public void move2()
     {
-        rb.velocity = new Vector3(0, 0, -10);
-        ismove = false;
-        Invoke("move22", 1);
+        if (!hooked)
+        {
+            rb.velocity = new Vector3(0, 0, -10);
+            ismove = false;
+            Invoke("move22", 1);
+        }
     }
 
     public void move22()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(10, 0, 0);
-        Invoke("move222", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(10, 0, 0);
+            Invoke("move222", 3);
+        }
     }
 
     public void move222()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(0, 0, 10);
-        Invoke("move2222", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(0, 0, 10);
+            Invoke("move2222", 3);
+        }
     }
 
     public void move2222()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(-10, 0, 0);
-        Invoke("move22222", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(-10, 0, 0);
+            Invoke("move22222", 3);
+        }
     }
 
     public void move22222()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(0, 0, -10);
-        Invoke("move22", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(0, 0, -10);
+            Invoke("move22", 3);
+        }
+
     }
 
     public void move3()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(10, 0, 0);
-        ismove = false;
-        Invoke("move33", 1);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(10, 0, 0);
+            ismove = false;
+            Invoke("move33", 1);
+        }
     }
 
     public void move33()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(0, 0, 10);
-        Invoke("move333", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(0, 0, 10);
+            Invoke("move333", 3);
+        }
     }
 
     public void move333()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(-10, 0, 0);
-        Invoke("move3333", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(-10, 0, 0);
+            Invoke("move3333", 3);
+        }
     }
 
     public void move3333()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(0, 0, -10);
-        Invoke("move33333", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(0, 0, -10);
+            Invoke("move33333", 3);
+        }
     }
 
     public void move33333()
     {
-        thisfish.transform.Rotate(0, 90, 0);
-        rb.velocity = new Vector3(10, 0, 0);
-        Invoke("move33", 3);
+        if (!hooked)
+        {
+            thisfish.transform.Rotate(0, 90, 0);
+            rb.velocity = new Vector3(10, 0, 0);
+            Invoke("move33", 3);
+        }
     }
 
     public void OnTriggerEnter(Collider other)

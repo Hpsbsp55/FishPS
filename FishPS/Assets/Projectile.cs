@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     private Vector3 OriginalPos; //spawn position of harpoon hook
     private Quaternion OriginalRot; //spawn rotation of harpoon hook
     private GameObject fish; //initialize fish gameObject
+    private bool fishInTow = false;
                              // Start is called before the first frame update
 
     //public UIManager manager = new UIManager();
@@ -32,12 +33,17 @@ public class Projectile : MonoBehaviour
             //Debug.Log("E");
             returnToGun();
         }
+        if(fishInTow)
+        {
+            fish.GetComponent<Rigidbody>().velocity = HRB.velocity;
+        }
     }
     void returnToGun() {
         GameObject player = GameObject.FindGameObjectWithTag("projectileDestroyer");
         HRB.velocity = Vector3.Normalize(player.transform.position - transform.position) * (HarpoonOperation.HSpeed * Mathf.Pow(Powerups.speedIncrement, Powerups.speedFactor) / 2f); //set the harpoon's velocity
         if (fish != null) {
-            fish.GetComponent<Rigidbody>().velocity = HRB.velocity; //set the fish's velocity to the harpoon's velocity
+            //fish.GetComponent<Rigidbody>().velocity = HRB.velocity; //set the fish's velocity to the harpoon's velocity
+            fishInTow = true;
         }
     }
     void OnTriggerEnter(Collider other) {
